@@ -5,6 +5,7 @@ import { fetchDetailedPockemonAction } from '../api-actions';
 
 const initialState: DetailedPockemonProcess = {
   detailedPockemon: null,
+  cache: {},
   isLoading: false,
   hasError: false,
   activeSpriteIndex: 0,
@@ -27,6 +28,8 @@ export const detailedPockemonProcess = createSlice({
       })
       .addCase(fetchDetailedPockemonAction.fulfilled, (state, action) => {
         state.detailedPockemon = action.payload;
+        state.cache[action.meta.arg] = action.payload;
+        // кэширование покемона по имени в объекте cache, с картинками делать так не будем, браузер сам кэширует
         state.isLoading = false;
       })
       .addCase(fetchDetailedPockemonAction.rejected, (state) => {

@@ -12,6 +12,7 @@ export type PockemonsProcess = {
 
 export type DetailedPockemonProcess = {
     detailedPockemon: Pokemon | null;
+    cache: Record<string, Pokemon>;
     isLoading: boolean;
     hasError: boolean;
     activeSpriteIndex: number;

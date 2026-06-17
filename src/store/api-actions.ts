@@ -1,7 +1,7 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import type { State } from '../types/state';
 import type { AxiosInstance } from 'axios';
-import { APIRoute } from '../const';
+import { APIRoute, NameSpace } from '../const';
 import type { NamedAPIResource, Pokemon } from '../types/pokemon';
 
 export const fetchPockemonsAction = createAsyncThunk<
@@ -23,7 +23,11 @@ export const fetchDetailedPockemonAction = createAsyncThunk<
     state: State;
     extra: AxiosInstance;
   }
->('detailedPockemon/fetchDetailedPockemon', async (name, { extra: api }) => {
+>('detailedPockemon/fetchDetailedPockemon', async (name, { extra: api, getState }) => {
+  const cached = getState()[NameSpace.DetailedPockemon].cache[name];
+  if (cached) {
+    return cached;
+  }
   const { data } = await api.get<Pokemon>(`${APIRoute.DetailedPockemon}/${name}`);
   return data;
 });

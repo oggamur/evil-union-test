@@ -2,6 +2,7 @@ import { useAppSelector, useAppDispatch } from '../../hooks';
 import { selectDetailedPockemon, selectActiveSpriteIndex } from '../../store/detailed-pockemon/selectors';
 import { nextSprite } from '../../store/detailed-pockemon/detailed-pockemon-process';
 import { collectSprites } from '../../logic/collect-sprites';
+import { Sprite } from '../sprite/sprite';
 
 export function PockemonStats(): React.ReactElement {
   const pockemon = useAppSelector(selectDetailedPockemon);
@@ -10,6 +11,7 @@ export function PockemonStats(): React.ReactElement {
 
   const spriteUrls = collectSprites(pockemon?.sprites);
   const safeIndex = activeIndex % (spriteUrls.length || 1);
+  const currentSrc = spriteUrls[safeIndex] ?? '';
 
   const handleClick = () => {
     dispatch(nextSprite());
@@ -30,13 +32,9 @@ export function PockemonStats(): React.ReactElement {
       <h2 className="pockemon-stats__name">
         {name[0].toUpperCase() + name.slice(1)}
       </h2>
-      <div
-        className="pockemon-stats__picture"
-        style={{
-          backgroundImage: `url(${spriteUrls[safeIndex] ?? ''})`,
-        }}
-        onClick={handleClick}
-      />
+      <div className="pockemon-stats__picture" onClick={handleClick}>
+        <Sprite key={currentSrc} src={currentSrc} alt={name} />
+      </div>
       <div className="pockemon-stats__table">
         <table>
           <tbody>
