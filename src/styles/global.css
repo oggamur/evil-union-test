@@ -1,0 +1,112 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 100px;
+    background-color: #131313;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.logo {
+    border: white 1px solid;
+    padding: 7px;
+}
+
+.logo p {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.click-button {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.click-button p{
+    text-align: start;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.chip-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    row-gap: 10px;
+    margin-bottom: 40px;
+    width: 50%;
+}
+
+.chip {
+    background-color:#1986EC;
+    padding: 20px;
+    border-radius: 44px;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+.pockemon-stats {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 50%;
+    padding: 44px 44px 15px 44px;
+
+    background-color: #000000;
+}
+
+.pockemon-stats__name {
+    font-size: 48px;
+    font-weight: 700;
+    color: #A0A0A0;
+    line-height: normal;
+    margin-bottom: 40px;
+}
+
+.pockemon-stats__picture {
+    margin-bottom: 30px;
+    width: 100%;
+    height: 200px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.pockemon-stats__table {
+    font-size: 17px;
+    line-height: 150%;
+    font-weight: 500;
+    color: #A0A0A0;
+}
