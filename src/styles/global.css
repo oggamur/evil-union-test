@@ -16,6 +16,18 @@ main {
     flex-direction: column;
     max-width: 980px;
     margin: 0 auto;
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header {
@@ -28,6 +40,13 @@ header {
 .logo {
     border: white 1px solid;
     padding: 7px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    cursor: default;
+}
+
+.logo:hover {
+    border-color: #1986EC;
+    transform: scale(1.05);
 }
 
 .logo p {
@@ -41,6 +60,18 @@ header {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.click-button:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
+
+.click-button:active {
+    transform: scale(0.95);
 }
 
 .click-button p{
@@ -55,7 +86,7 @@ header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;
+    align-items: center;
 }
 
 .chip-list {
@@ -74,6 +105,19 @@ header {
     border-radius: 44px;
     font-weight: 500;
     font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeInUp 0.4s ease-out both;
+}
+
+.chip:hover {
+    background-color: #4ba3f7;
+    transform: scale(1.07);
+    box-shadow: 0 4px 15px rgba(25, 134, 236, 0.5);
+}
+
+.chip:active {
+    transform: scale(0.95);
 }
 
 .pockemon-stats {
@@ -102,6 +146,15 @@ header {
     background-position: center;
     background-repeat: no-repeat;
     cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.pockemon-stats__picture:hover {
+    transform: scale(1.05);
+}
+
+.pockemon-stats__picture:active {
+    transform: scale(0.95);
 }
 
 .pockemon-stats__table {
@@ -109,4 +162,62 @@ header {
     line-height: 150%;
     font-weight: 500;
     color: #A0A0A0;
+}
+
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 100px);
+    gap: 20px;
+}
+
+.loading-screen p {
+    font-size: 18px;
+    color: #A0A0A0;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #A0A0A0;
+    border-top-color: #1986EC;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 0.7;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }

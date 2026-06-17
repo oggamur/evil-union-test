@@ -1,12 +1,16 @@
 import clickHandSvg from '../../assets/img/click-hand.svg';
 
-export function Header(): React.ReactElement {
+type HeaderProps = {
+  onAnimateChips?: () => void;
+};
+
+export function Header({ onAnimateChips }: HeaderProps): React.ReactElement {
   return (
     <header>
       <div className="logo">
-        <p>ПОКЕМОНЫ API</p>
+        <a href="https://pokeapi.co/">ПОКЕМОНЫ API</a>
       </div>
-      <button className='click-button'>
+      <button className='click-button' onClick={onAnimateChips}>
         <img src={clickHandSvg} alt="Menu" />
         <p>Нажмите на<br />нужного Покемона</p>
       </button>
