@@ -1,0 +1,254 @@
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 100px;
+    background-color: #131313;
+
+    font-family: 'Raleway', sans-serif;
+    font-weight: 500;
+    line-height: 100%;
+    color: white;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    max-width: 980px;
+    margin: 0 auto;
+    animation: fadeInUp 0.5s ease-out both;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 60px;
+}
+
+.logo {
+    border: white 1px solid;
+    padding: 7px;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+    cursor: default;
+}
+
+.logo:hover {
+    border-color: #1986EC;
+    transform: scale(1.05);
+}
+
+.logo p {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.click-button {
+    display: flex;
+    gap: 10px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    cursor: pointer;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.click-button:hover {
+    transform: scale(1.08);
+    opacity: 0.8;
+}
+
+.click-button:active {
+    transform: scale(0.95);
+}
+
+.click-button p{
+    text-align: start;
+
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.hero {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chip-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 6px;
+    row-gap: 10px;
+    margin-bottom: 40px;
+    width: 50%;
+}
+
+.chip {
+    background-color:#1986EC;
+    padding: 20px;
+    border-radius: 44px;
+    font-weight: 500;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    animation: fadeInUp 0.4s ease-out both;
+}
+
+.chip:hover {
+    background-color: #4ba3f7;
+    transform: scale(1.07);
+    box-shadow: 0 4px 15px rgba(25, 134, 236, 0.5);
+}
+
+.chip:active {
+    transform: scale(0.95);
+}
+
+.pockemon-stats {
+    display: flex;
+    flex-direction: column;
+    height: 500px;
+    width: 50%;
+    padding: 44px 44px 15px 44px;
+
+    background-color: #000000;
+}
+
+.pockemon-stats__name {
+    font-size: 48px;
+    font-weight: 700;
+    color: #A0A0A0;
+    line-height: normal;
+    margin-bottom: 40px;
+    animation: fadeInUp 0.4s ease-out both;
+}
+
+.pockemon-stats__table {
+    font-size: 17px;
+    line-height: 150%;
+    font-weight: 500;
+    color: #A0A0A0;
+    animation: fadeInUp 0.4s 0.1s ease-out both;
+}
+
+.pockemon-stats__picture {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+    width: 100%;
+    height: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.pockemon-stats__picture:hover {
+    transform: scale(1.05);
+}
+
+.pockemon-stats__picture:active {
+    transform: scale(0.95);
+}
+
+.pockemon-stats__loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.pockemon-stats__loader .spinner {
+    width: 40px;
+    height: 40px;
+}
+
+.pockemon-stats__picture img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.pockemon-stats__picture img.loading {
+    display: none;
+}
+
+.pockemon-stats__picture img.loaded {
+    display: block;
+}
+
+
+.loading-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 100px);
+    gap: 20px;
+}
+
+.loading-screen p {
+    font-size: 18px;
+    color: #A0A0A0;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #A0A0A0;
+    border-top-color: #1986EC;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.06);
+        opacity: 0.7;
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.08);
+        opacity: 1;
+    }
+    70% {
+        transform: scale(0.95);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
